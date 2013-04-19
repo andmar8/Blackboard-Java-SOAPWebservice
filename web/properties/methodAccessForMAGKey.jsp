@@ -1,4 +1,12 @@
-<%@ page language="java" pageEncoding="UTF-8" import="java.util.ArrayList,java.util.Iterator,java.util.List,bbws.util.security.WSMethods,bbws.util.security.properties.property.PropertyBoolean,blackboard.data.user.User,blackboard.platform.context.ContextManagerFactory" %>
+<%@ page language="java"
+         pageEncoding="UTF-8"
+         import="java.util.ArrayList,
+                    java.util.Iterator,
+                    java.util.List,
+                    bbws.util.security.impl.WSMethods,
+                    bbws.util.security.properties.property.PropertyBoolean,
+                    blackboard.data.user.User,
+                    blackboard.platform.context.ContextManagerFactory" %>
 <%@ taglib uri="/bbUI" prefix="bbUI"%>
 <%@ taglib uri="/bbData" prefix="bbData"%>
 <%
@@ -21,6 +29,8 @@
  */
 %>
 <%
+    //Any reference to a "MAG" means "Method Access Group"
+    String applicationHandle = "BBWebService";
     String methodAccessLabel = "methodAccess";
     String sslLabel = "sslReq";
     String magName = "default";
@@ -49,8 +59,8 @@
             while(wmi.hasNext())
             {
                 currentMethod = wmi.next();
-                accessGroupProperty = new PropertyBoolean(PersistWSProperties.getProperty(magName+"."+currentMethod+"."+methodAccessLabel));
-                sslProperty = new PropertyBoolean(PersistWSProperties.getProperty(magName+"."+currentMethod+"."+sslLabel));
+                accessGroupProperty = new PropertyBoolean(PersistWSProperties.getProperty(applicationHandle,magName+"."+currentMethod+"."+methodAccessLabel));
+                sslProperty = new PropertyBoolean(PersistWSProperties.getProperty(applicationHandle,magName+"."+currentMethod+"."+sslLabel));
 %>
                     <bbUI:dataElement canFormatLabel="true" label="<%= currentMethod %>">
                         <bbUI:dataSubElement label="Allow Access" required="true">
@@ -72,7 +82,7 @@
         }
         else
         {
-            try{PersistWSProperties.setProperties(request);}catch(Exception e){}
+            try{PersistWSProperties.setProperties(applicationHandle,request);}catch(Exception e){}
 %>
         <h3>Persisting method options, please wait...</h3>
 	<form action="#" method="POST" name="aForm">

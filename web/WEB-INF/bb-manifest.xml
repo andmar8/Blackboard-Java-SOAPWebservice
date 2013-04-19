@@ -5,9 +5,9 @@
       <description value="Expose blackboard data/api via webservices and xml"/>
       <handle value="BBWebService"/>
 	  <!-- Release.Major.Minor.Subversion-->
-	  <version value="2.0.0.0"/>
+	  <version value="3.0.0.0"/>
 	  <requires>
- 	    <bbversion value="8.0.0"/>
+ 	    <bbversion value="9.1.4"/>
 	  </requires>
 	  <vendor>
 	    <id value="amnl"/>
@@ -32,6 +32,7 @@
             <permission type="javax.management.MBeanPermission" name="com.sun.xml.ws.transport.http.HttpDump#-[com.sun.xml.ws.transport.http:type=HttpDump]" actions="registerMBean"/>
             <!--Uncomment below if you want to compile against metro 2.0-->
             <permission type="javax.management.MBeanPermission" name="WSEndpoint#-[com.sun.metro:name=/webapps/amnl-BBWebService-bb_bb60-BBWebService-BBWebServicePort,pp=/,type=WSEndpoint]" actions="registerMBean,unregisterMBean"/>
+            <permission type="javax.management.MBeanPermission" name="WSEndpoint#-[com.sun.metro:name=/webapps/amnl-BBWebService-BBLEARN-BBWebService-BBWebServicePort,pp=/,type=WSEndpoint]" actions="registerMBean,unregisterMBean"/>
             <permission type="javax.management.MBeanServerPermission" name="createMBeanServer" actions=""/>
             <permission type="javax.management.MBeanTrustPermission" name="register" actions=""/>
 	    <permission type="attribute" name="user.authinfo" actions="get,set"/>

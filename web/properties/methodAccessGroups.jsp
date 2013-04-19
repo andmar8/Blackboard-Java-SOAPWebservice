@@ -22,17 +22,7 @@
 %>
 <%
     //Any reference to a "MAG" means "Method Access Group"
-    /*try
-    {
-        java.util.Enumeration enm = request.getParameterNames();
-        String enms;
-        while(enm.hasMoreElements())
-        {
-            enms = enm.nextElement().toString();
-            System.err.println("in***"+enms+": "+request.getParameter(enms));
-        }
-    }catch(Exception e){}*/
-
+    String applicationHandle = "BBWebService";
 %>
 <bbData:context>
     <bbUI:docTemplate title="Blackboard Administrator Tools">
@@ -50,7 +40,7 @@
         //Get all Method Access Groups
         try
         {
-            magncsv = PersistWSProperties.getProperty("methodAccessGroupNames");
+            magncsv = PersistWSProperties.getProperty(applicationHandle,"methodAccessGroupNames");
             if(magncsv!=null&&!magncsv.equalsIgnoreCase(""))
             {
                 if(magncsv.contains(magnSeperator))
@@ -174,7 +164,7 @@
                                 while(magni.hasNext())
                                 {
                                     methodAccessGroupName = magni.next();
-                                    if(newMAGName.equalsIgnoreCase(methodAccessGroupName)||newMAGName.equals(PersistWSProperties.getProperty(methodAccessGroupName+".magkey")))
+                                    if(newMAGName.equalsIgnoreCase(methodAccessGroupName)||newMAGName.equals(PersistWSProperties.getProperty(applicationHandle,methodAccessGroupName+".magkey")))
                                     {
                                         doesNotMatch = false;
                                         break;
@@ -230,7 +220,7 @@
                         magni = magnl.iterator();
                         while(magni.hasNext())
                         {
-                            try{magkl.add(PersistWSProperties.getProperty(magni.next()+".magkey"));}catch(Exception e){}
+                            try{magkl.add(PersistWSProperties.getProperty(applicationHandle,magni.next()+".magkey"));}catch(Exception e){}
                         }
                         Iterator<String> magki = magkl.iterator();
                         //This doesnt account for ""????
@@ -303,7 +293,7 @@
             //System.err.println("rAddr==lAddr:"+request.getRemoteAddr()==java.net.InetAddress.getLocalHost().getHostAddress());
             //System.err.println("rAddr:"+request.getRemoteAddr());
             //System.err.println("lAddr:"+java.net.InetAddress.getLocalHost().getHostAddress());
-            if(persist){try{PersistWSProperties.setProperties(request);}catch(Exception e){}}
+            if(persist){try{PersistWSProperties.setProperties(applicationHandle,request);}catch(Exception e){}}
             //System.err.println("persist: "+persist);
 %>
         </form>
