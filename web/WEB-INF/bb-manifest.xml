@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <plugin>
+      <name value="Blackboard Soap Web Services"/>
+      <description value="Expose blackboard data/api via webservices and xml"/>
+      <handle value="BBWebService"/>
+	  <!-- Release.Major.Minor.Subversion-->
+	  <version value="2.0.0.0"/>
+	  <requires>
+ 	    <bbversion value="8.0.0"/>
+	  </requires>
+	  <vendor>
+	    <id value="amnl"/>
+	    <name value="Andrew Martin, Newcastle University"/>
+	    <url value="http://www.ncl.ac.uk/iss/about/staff/profile/andrew.martin"/>
+	    <description value="Expose blackboard data/api via webservices and xml"/>
+	  </vendor>
+	  <http-actions>
+		<config value="properties/methodAccessGroups.jsp"/>
+		<remove value=""/>
+	  </http-actions>
+	<permissions>
+	    <permission type="socket" name="*" actions="resolve,connect"/>
+	    <permission type="java.io.FilePermission" actions="read,write" name="&amp;lt;&amp;lt;ALL FILES&amp;gt;&amp;gt;" />
+	    <permission type="java.lang.RuntimePermission" name="createClassLoader" actions="createClassLoader"/>
+	    <permission type="java.lang.reflect.ReflectPermission" name="suppressAccessChecks" actions="suppressAccessChecks"/>
+	    <permission type="java.lang.RuntimePermission" name="getClassLoader" actions="getClassLoader"/>
+            <permission type="java.lang.RuntimePermission" name="setContextClassLoader" actions="setContextClassLoader"/>
+	    <permission type="java.lang.RuntimePermission" name="accessDeclaredMembers" actions="accessDeclaredMembers"/>
+	    <permission type="java.util.PropertyPermission" name="user.language" actions="write"/>
+            <permission type="javax.management.MBeanPermission" name="com.sun.xml.ws.util.RuntimeVersion#-[com.sun.xml.ws.util:type=RuntimeVersion]" actions="registerMBean"/>
+            <permission type="javax.management.MBeanPermission" name="com.sun.xml.ws.transport.http.HttpDump#-[com.sun.xml.ws.transport.http:type=HttpDump]" actions="registerMBean"/>
+            <!--Uncomment below if you want to compile against metro 2.0-->
+            <permission type="javax.management.MBeanPermission" name="WSEndpoint#-[com.sun.metro:name=/webapps/amnl-BBWebService-bb_bb60-BBWebService-BBWebServicePort,pp=/,type=WSEndpoint]" actions="registerMBean,unregisterMBean"/>
+            <permission type="javax.management.MBeanServerPermission" name="createMBeanServer" actions=""/>
+            <permission type="javax.management.MBeanTrustPermission" name="register" actions=""/>
+	    <permission type="attribute" name="user.authinfo" actions="get,set"/>
+	    <permission type="attribute" name="user.cardnumber" actions="get"/>
+	    <permission type="attribute" name="user.personalinfo" actions="get,set"/>
+	    <permission type="persist" name="announcement" actions="create,modify,delete"/>
+	    <permission type="persist" name="attempt" actions="load,persist,delete"/>
+	    <permission type="persist" name="calendarentry" actions="create,modify,delete"/>
+	    <permission type="persist" name="conference" actions="create,modify,delete"/>
+	    <permission type="persist" name="content" actions="create,modify,delete"/>
+	    <permission type="persist" name="course" actions="create,modify,delete"/>
+	    <permission type="persist" name="coursemembership" actions="create,modify,delete"/>
+	    <permission type="persist" name="forum" actions="create,modify,delete"/>
+	    <permission type="persist" name="group" actions="create,modify,delete"/>
+	    <permission type="persist" name="message" actions="create,modify,delete"/>	
+            <permission type="persist" name="Outcome" actions="create,modify,delete"/>
+	    <permission type="persist" name="OutcomeDefinition" actions="create,modify,delete"/>
+	    <permission type="persist" name="OutcomeDefinitionCategory" actions="create,modify,delete"/>
+	    <permission type="persist" name="user" actions="create,modify,delete"/>
+	    <permission type="persist" name="userrole" actions="create,modify,delete"/>
+            <permission type="persist" name="userlifecycleeventpropertyimpl" actions="create,modify,delete" />
+            <permission type="persist" name="userlifecycleeventimpl" actions="create,modify,delete" />
+	</permissions>
+  </plugin>
+</manifest>
