@@ -3,6 +3,8 @@ Blackboard-Java-SOAPWebservice
 
 Bare with me, it'll take a while to get all the required source and dependancies on github and then a bit of documentation to make this useful...
 
+Documentation can still be found in the project's original home on oscelot... http://projects.oscelot.org/gf/project/webservices/, this will change "at some point in the future"
+
 This project exposes all the back end code in the helper jar via a SOAP interface, there is also a REST interface but does not currently have as many interfaces to exposes the back end code.
 
 Dependencies
